@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from './task';
-import { TasksService } from './tasks.service'
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,9 +11,9 @@ import { TasksService } from './tasks.service'
 })
 export class TasksComponent implements OnInit {
 
-tasks: Task[]
-  editTask: Task
-
+  tasks: Task[];
+  editTask: Task;
+  
   constructor(private taskService: TasksService) {}
 
   ngOnInit() {
@@ -32,11 +32,11 @@ tasks: Task[]
     }
 
     //const newTask: Task = { title } as Task
-    //const newTask: Task = { title } as Task
-    //this.taskService.addTask(newTask).subscribe(task => this.tasks.push(task))
+    const newTask: Task = { title } as Task
+    this.taskService.addTask(newTask).subscribe(task => this.tasks.push(task))
   }
 
-  delete(task: Task): void {
+  delete(task: Task): void {    
     this.tasks = this.tasks.filter(h => h !== task)
     this.taskService.deleteTask(task._id).subscribe()
   }

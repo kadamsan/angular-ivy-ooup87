@@ -1,6 +1,7 @@
 {
   "/api/*": {
-    "target": "http://localhost:3000/api",
+    //"target": "http://localhost:3000/api",
+    "target": "https://warlikeenchantingelement--five-nine.repl.co/api",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
